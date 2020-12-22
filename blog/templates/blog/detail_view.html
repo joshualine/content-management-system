@@ -1,5 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
+    <ul>
+        <li>Title: <a href="{% url 'blog:post_list' %}">{{ post.title }}</a></li>
+        <li>authored by: {{ post.author }}</li>
+        <li>Created on: {{ post.created }}</li>
+        <li>slug: {{ post.slug }}</li>
+        <li>Body: {{ post.body }}</li>
+        <br>
+        <li>Lorem text: {% lorem %}</li>
+        <br>
+        <li>You are viewing this on: {% now "jS F Y H:i" %}</li>
+    </ul>
 {% endblock content %}
