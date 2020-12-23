@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>All books</h1>
+    <h1>All Posts</h1>
     {% for post in posts %}
+        <p>Tags: {{ post.tags.all|join:", " }}</p>
         <ul>
             <li>Title: <a href="{% url 'blog:post_detail' post.slug %}">{{ post.title }}</a></li>
             <li>title: {{ post.title }}</li>

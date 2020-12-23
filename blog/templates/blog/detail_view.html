@@ -12,4 +12,22 @@
         <br>
         <li>You are viewing this on: {% now "jS F Y H:i" %}</li>
     </ul>
+    <p>
+        <a href="{% url 'blog:post_share' post.id %}">share this post</a>
+    </p>
+
+
+    {% if comments %}
+        {% for comment in comments %}
+            <p><strong>comment {{ forloop.counter }}</strong> {{ comment.name }} said {{ comment.body }}</p>
+        {% endfor %}
+        <p>{{ comments.count }} comment{{ comments.count|pluralize }}</p>
+    {% else %}
+        <p>{{ comments.count }} comment{{ comments.count|pluralize }}</p>
+    {% endif %}
+    <form method="post">
+        {{ comment_form.as_p }}
+        {% csrf_token %}
+        <input type="submit" value="Submit">
+    </form>
 {% endblock content %}
