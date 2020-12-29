@@ -1,4 +1,5 @@
 import os
+import django_heroku
 from django.core.management.utils import get_random_secret_key
 from pathlib import Path
 
@@ -12,7 +13,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", get_random_secret_key())
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['joshualineblog.herokuapp.com']
 
 # Application definition
 INSTALLED_APPS = [
@@ -122,3 +123,6 @@ EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
+
+
+django_heroku.settings(locals())
