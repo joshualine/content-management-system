@@ -1,5 +1,5 @@
 import os
-import django_heroku
+import django_on_heroku
 from django.core.management.utils import get_random_secret_key
 from pathlib import Path
 
@@ -125,4 +125,4 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
 
-django_heroku.settings(locals())
+django_on_heroku.settings(locals())
